@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="XMLTools:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/XMLTools_jar</output-path>
+    <root id="archive" name="XMLTools.jar">
+      <element id="module-output" name="XMLTools" />
+    </root>
+  </artifact>
+</component>

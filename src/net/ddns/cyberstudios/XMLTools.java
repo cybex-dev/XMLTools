@@ -25,6 +25,11 @@ import java.util.LinkedList;
 import java.util.Map;
 
 public class XMLTools {
+
+    public static void main(String[] args) {
+
+    }
+
     /**
      * Text representation of document
      *
