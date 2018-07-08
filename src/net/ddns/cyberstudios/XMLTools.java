@@ -79,7 +79,7 @@ public class XMLTools {
         for (int i = 0; i < root.getAttributes().getLength(); i++) {
             Attr item = (Attr) root.getAttributes().item(i);
             String attrKey = item.getNodeName();
-            String attrValue = item.getNodeValue();
+            String attrValue = "\"" + item.getNodeValue() + "\"";
             element.addAttribute(attrKey, attrValue);
         }
         NodeList childNodes = root.getChildNodes();
