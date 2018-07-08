@@ -146,7 +146,7 @@ public class Element {
 
     public String getPreTag(String tag){
         String att = attributes.entrySet().stream().map(attrEntry -> " " + attrEntry.getKey() + "=" + attrEntry.getValue()).reduce(String::concat).orElse("");
-        return "<" + tag + "class=\"" + this.tag + "\" " + att + ">";
+        return "<" + tag + " class=\"" + this.tag + "\" " + att + ">";
     }
 
     public String getPostTag(String tag){
