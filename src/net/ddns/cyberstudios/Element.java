@@ -33,7 +33,8 @@ public class Element {
             id = "",
             hint = "",
             type = "",
-            value = "";
+            value = "",
+            link = "";
 
     public Element() {
     }
@@ -58,22 +59,12 @@ public class Element {
         this.attributes = attributes;
         this.children = children;
         this.parent = parent;
-
-        processAttributes();
     }
 
     public Element(String tag, Element parent, Map<String, String> attributes) {
         this.tag = tag;
         this.attributes = attributes;
         this.parent = parent;
-
-        processAttributes();
-    }
-
-    private void processAttributes() {
-        id = attributes.entrySet().stream().filter(s -> s.getValue().equals("id")).findFirst().orElse(EmptyEntry).getValue();
-        hint = attributes.entrySet().stream().filter(s -> s.getValue().equals("hint")).findFirst().orElse(EmptyEntry).getValue();
-        type = attributes.entrySet().stream().filter(s -> s.getValue().equals("type")).findFirst().orElse(EmptyEntry).getValue();
     }
 
     public void setValue(String value) {
@@ -121,7 +112,21 @@ public class Element {
     }
 
     public void addAttribute(String attrKey, String attrValue) {
+        switch (attrKey.toLowerCase()) {
+            case "id": id = attrValue; break;
+            case "hint": hint = attrValue; break;
+            case "type": type = attrValue; break;
+            case "link": link = attrValue; break;
+        }
         this.attributes.put(attrKey, attrValue);
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public boolean hasLink(){
+        return !link.isEmpty();
     }
 
     public void addChild(Element child) {
