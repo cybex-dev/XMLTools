@@ -140,12 +140,16 @@ public class Element {
         this.parent = parent;
     }
 
-    public String getPreTag(){
-        String att = attributes.entrySet().stream().map(attrEntry -> " " + attrEntry.getKey() + "=" + attrEntry.getValue()).reduce(String::concat).orElse("");
-        return "<" + tag + att + ">";
+    public String getAttributesAsString() {
+        return attributes.entrySet().stream().map(attrEntry -> " " + attrEntry.getKey() + "=" + attrEntry.getValue()).reduce(String::concat).orElse("");
     }
 
-    public String getPostTag(){
+    public String getPreTag(String tag){
+        String att = attributes.entrySet().stream().map(attrEntry -> " " + attrEntry.getKey() + "=" + attrEntry.getValue()).reduce(String::concat).orElse("");
+        return "<" + tag + "class=\"" + this.tag + "\" " + att + ">";
+    }
+
+    public String getPostTag(String tag){
         return "</" + tag + ">";
     }
 
@@ -153,9 +157,17 @@ public class Element {
         return children.stream().map(Element::toString).reduce(String::concat).orElse("");
     }
 
+    public boolean isLeaf() {
+        return !value.isEmpty();
+    }
+
+    public ContentConsumer toHtml(String htmlTag){
+        return text -> getPreTag(htmlTag) + text + getPostTag(htmlTag);
+    }
+
     @Override
     public String toString() {
         //TODO Check this
-        return getPreTag() + getChildrenContent() + getPostTag();
+        return getPreTag(tag) + getChildrenContent() + getPostTag(tag);
     }
 }
