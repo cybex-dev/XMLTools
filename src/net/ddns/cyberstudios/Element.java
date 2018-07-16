@@ -7,7 +7,7 @@ import java.util.Map;
 //TODO
 // add methods to check ID, hint, check question type, check type, etc
 
-public class Element<T> {
+public class Element {
 
     public static Map.Entry<String, String> EmptyEntry = new Map.Entry<String, String>() {
         @Override
@@ -35,7 +35,7 @@ public class Element<T> {
             type = "",
             text = "",
             link = "";
-    private T value = null;
+    private Object value = null;
 
 
     public Element() {
@@ -190,7 +190,7 @@ public class Element<T> {
      * Sets the value (answer, response, etc) of the Element
      * @param value
      */
-    public void setValue(T value) {
+    public void setValue(Object value) {
         this.value = value;
     }
 }
