@@ -188,9 +188,29 @@ public class Element {
 
     /**
      * Sets the value (answer, response, etc) of the Element
-     * @param value
+     * @param value value to set
      */
     public void setValue(Object value) {
         this.value = value;
+    }
+
+    /**
+     * Performs a deep clone on the element.
+     * @param parent required to keep tree structure, since making a deep copy of parent will result in a invalid reference to the actual parent of the element.
+     * @return deep copied element
+     */
+    public Element clone(Element parent){
+        Element e = new Element();
+        e.parent = parent;
+        e.tag = tag;
+        e.id = id;
+        e.hint = hint;
+        e.type = type;
+        e.text = text;
+        e.link = link;
+        e.value = value;
+        attributes.forEach(e::addAttribute);
+        children.forEach(element -> e.addChild(element.clone(parent)));
+        return e;
     }
 }
