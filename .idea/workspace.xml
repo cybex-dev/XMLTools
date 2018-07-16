@@ -9,7 +9,10 @@
     <bookmark url="file://$PROJECT_DIR$/src/net/ddns/cyberstudios/XMLTools.java" line="27" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70e54b8a-01c9-428d-8a24-733147d85704" name="Default" comment="Added support for cloning element and DOM tree">
+    <list id="dc9fcb41-4d56-48b5-99ba-e7dafde3cfe4" name="Revert &quot;Added support for cloning element and DOM tree&quot;" comment="Revert &quot;Added support for cloning element and DOM tree&quot;&#10;&#10;This reverts commit 7b0c925" />
+    <list id="5989cd32-13f6-48c1-9d34-3422544ffe16" name="Added support for cloning element and DOM tree" comment="" />
+    <list default="true" id="70e54b8a-01c9-428d-8a24-733147d85704" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/net/ddns/cyberstudios/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/ddns/cyberstudios/Element.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,7 +31,7 @@
       <file leaf-file-name="XMLTools.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/ddns/cyberstudios/XMLTools.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
+            <state relative-caret-position="1890">
               <caret line="148" column="5" selection-start-line="148" selection-start-column="5" selection-end-line="148" selection-end-column="5" />
             </state>
           </provider>
@@ -37,12 +40,14 @@
       <file leaf-file-name="Element.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/ddns/cyberstudios/Element.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="210" column="24" selection-start-line="210" selection-start-column="24" selection-end-line="210" selection-end-column="24" />
+            <state relative-caret-position="164">
+              <caret line="197" column="30" selection-start-line="197" selection-start-column="30" selection-end-line="197" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3132#3133#0" expanded="true" />
-                <element signature="e#3163#3164#0" expanded="true" />
+                <element signature="e#4580#4581#0" expanded="true" />
+                <element signature="e#4614#4615#0" expanded="true" />
+                <element signature="e#4646#4647#0" expanded="true" />
+                <element signature="e#4674#4675#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,7 +107,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -131,11 +135,6 @@
             <path>
               <item name="XMLTools" type="b2602c69:ProjectViewProjectNode" />
               <item name="XMLTools" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="XMLTools" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XMLTools" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -148,6 +147,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -241,13 +241,15 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="70e54b8a-01c9-428d-8a24-733147d85704" name="Default" comment="" />
+      <changelist id="5989cd32-13f6-48c1-9d34-3422544ffe16" name="Added support for cloning element and DOM tree" comment="" />
       <created>1531081245788</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1531081245788</updated>
       <workItem from="1531081251011" duration="29000" />
       <workItem from="1531727134360" duration="7253000" />
-      <workItem from="1531743647143" duration="4596000" />
+      <workItem from="1531743647143" duration="4829000" />
+      <workItem from="1531758497213" duration="25000" />
     </task>
     <task id="LOCAL-00001" summary="Added support for searching for an element ID using lookups">
       <created>1531734334493</created>
@@ -277,11 +279,25 @@
       <option name="project" value="LOCAL" />
       <updated>1531754834079</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added support for cloning element and DOM tree">
+      <created>1531756179810</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1531756179810</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added support for cloning element and DOM tree">
+      <created>1531756312388</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1531756312389</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11878000" />
+    <option name="totallyTimeSpent" value="12136000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="708" extended-state="6" />
@@ -290,28 +306,28 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="SBT Console" order="7" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.32998326" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32998326" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32998326" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49748743" visible="true" weight="0.24963397" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49413735" visible="true" weight="0.24963397" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Learn" order="2" />
-      <window_info id="Structure" order="1" sideWeight="0.5025126" side_tool="true" weight="0.24963397" />
+      <window_info id="Structure" order="1" sideWeight="0.50586265" side_tool="true" visible="true" weight="0.24963397" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.32663316" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32998326" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32998326" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.329429" />
@@ -321,42 +337,68 @@
       <window_info anchor="bottom" id="SBT Execute" order="7" side_tool="true" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="SBT Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32998326" />
       <window_info id="Image Layers" order="3" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32998326" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.329429" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32998326" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="bottom" id="SBT Execute" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49748743" visible="true" weight="0.24963397" />
       <window_info id="Learn" order="7" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32998326" />
+      <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Structure" order="1" sideWeight="0.5025126" side_tool="true" visible="true" weight="0.24963397" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.329429" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.32663316" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -364,7 +406,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added support for searching for an element ID using lookups" />
     <MESSAGE value="Added support for adding a value for an Element" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added support for adding a value for an Element" />
+    <MESSAGE value="Added support for cloning element and DOM tree" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added support for cloning element and DOM tree" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -406,6 +449,27 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/net/ddns/cyberstudios/XMLTools.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1890">
+          <caret line="148" column="5" selection-start-line="148" selection-start-column="5" selection-end-line="148" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ddns/cyberstudios/Element.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2190">
+          <caret line="196" column="7" lean-forward="true" selection-start-line="196" selection-start-column="7" selection-end-line="196" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4580#4581#0" expanded="true" />
+            <element signature="e#4614#4615#0" expanded="true" />
+            <element signature="e#4646#4647#0" expanded="true" />
+            <element signature="e#4674#4675#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/ddns/cyberstudios/XMLTools.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1005">
           <caret line="89" column="6" lean-forward="true" selection-start-line="89" selection-start-column="6" selection-end-line="89" selection-end-column="6" />
         </state>
@@ -424,8 +488,10 @@
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3132#3133#0" expanded="true" />
-            <element signature="e#3163#3164#0" expanded="true" />
+            <element signature="e#4580#4581#0" expanded="true" />
+            <element signature="e#4614#4615#0" expanded="true" />
+            <element signature="e#4646#4647#0" expanded="true" />
+            <element signature="e#4674#4675#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -474,19 +540,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/ddns/cyberstudios/XMLTools.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
+        <state relative-caret-position="1890">
           <caret line="148" column="5" selection-start-line="148" selection-start-column="5" selection-end-line="148" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/ddns/cyberstudios/Element.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="210" column="24" selection-start-line="210" selection-start-column="24" selection-end-line="210" selection-end-column="24" />
+        <state relative-caret-position="164">
+          <caret line="197" column="30" selection-start-line="197" selection-start-column="30" selection-end-line="197" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3132#3133#0" expanded="true" />
-            <element signature="e#3163#3164#0" expanded="true" />
+            <element signature="e#4580#4581#0" expanded="true" />
+            <element signature="e#4614#4615#0" expanded="true" />
+            <element signature="e#4646#4647#0" expanded="true" />
+            <element signature="e#4674#4675#0" expanded="true" />
           </folding>
         </state>
       </provider>

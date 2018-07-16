@@ -195,6 +195,14 @@ public class Element {
     }
 
     /**
+     * Gets data held in value
+     * @return
+     */
+    public Object getValue() {
+        return value;
+    }
+
+    /**
      * Performs a deep clone on the element.
      * @param parent required to keep tree structure, since making a deep copy of parent will result in a invalid reference to the actual parent of the element.
      * @return deep copied element
