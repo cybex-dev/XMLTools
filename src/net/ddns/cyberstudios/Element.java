@@ -7,35 +7,17 @@ import java.util.Map;
 //TODO
 // add methods to check ID, hint, check question type, check type, etc
 
-public class Element {
-
-    public static Map.Entry<String, String> EmptyEntry = new Map.Entry<String, String>() {
-        @Override
-        public String getKey() {
-            return "";
-        }
-
-        @Override
-        public String getValue() {
-            return "";
-        }
-
-        @Override
-        public String setValue(String value) {
-            return "";
-        }
-    };
+public class Element<T> {
 
     private Map<String, String> attributes = new HashMap<>();
-    private LinkedList<Element> children = new LinkedList<>();
-    private Element parent;
+    private LinkedList<Element<T>> children = new LinkedList<>();
+    private Element<T> parent;
     private String tag = "",
             id = "",
             hint = "",
             type = "",
-            text = "",
             link = "";
-    private Object value = null;
+    private T value;
 
 
     public Element() {
@@ -45,32 +27,32 @@ public class Element {
         this.tag = tag;
     }
 
-    public Element(String tag, Element parent) {
+    public Element(String tag, Element<T> parent) {
         this.tag = tag;
         this.parent = parent;
     }
 
-    public Element(String tag, Element parent, LinkedList<Element> children) {
+    public Element(String tag, Element<T> parent, LinkedList<Element<T>> children) {
         this.tag = tag;
         this.children = children;
         this.parent = parent;
     }
 
-    public Element(String tag, Element parent, LinkedList<Element> children, Map<String, String> attributes) {
+    public Element(String tag, Element<T> parent, LinkedList<Element<T>> children, Map<String, String> attributes) {
         this.tag = tag;
         this.attributes = attributes;
         this.children = children;
         this.parent = parent;
     }
 
-    public Element(String tag, Element parent, Map<String, String> attributes) {
+    public Element(String tag, Element<T> parent, Map<String, String> attributes) {
         this.tag = tag;
         this.attributes = attributes;
         this.parent = parent;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setValue(T value) {
+        this.value = value;
     }
 
     public boolean hasParent(){
@@ -101,8 +83,8 @@ public class Element {
      * Gets text value (question, etc) stored by Element
      * @return
      */
-    public String getText() {
-        return text;
+    public T getValue() {
+        return value;
     }
 
     public String getTag() {
@@ -135,19 +117,19 @@ public class Element {
         return !link.isEmpty();
     }
 
-    public void addChild(Element child) {
+    public void addChild(Element<T> child) {
         this.children.add(child);
     }
 
-    public LinkedList<Element> getChildren() {
+    public LinkedList<Element<T>> getChildren() {
         return children;
     }
 
-    public Element getParent() {
+    public Element<T> getParent() {
         return parent;
     }
 
-    public void setParent(Element parent) {
+    public void setParent(Element<T> parent) {
         this.parent = parent;
     }
 
@@ -168,8 +150,42 @@ public class Element {
         return children.stream().map(Element::toString).reduce(String::concat).orElse("");
     }
 
-    public boolean isLeaf() {
-        return !text.isEmpty();
+    /**
+     * Returns the string of an alternative question, used in conjunction with the component alternative
+     * @return
+     */
+    public String getAlternativeHint(){
+        Map.Entry<String, String> entry = attributes.entrySet().stream().filter(stringStringEntry -> stringStringEntry.getKey().equals("alternative_hint")).findFirst().orElse(null);
+        return (entry != null) ? entry.getValue() : "";
+    }
+
+    /**
+     * Returns the string of an alternative question, used in conjunction with the component alternative
+     * @return
+     */
+    public String getAlternativeQuestion(){
+        Map.Entry<String, String> entry = attributes.entrySet().stream().filter(stringStringEntry -> stringStringEntry.getKey().equals("alternative")).findFirst().orElse(null);
+        return (entry != null) ? entry.getValue() : "";
+    }
+
+    public boolean isComponent() {
+        return tag.equals("component");
+    }
+
+    /**
+     * Returns true if node is the question of a component
+     * @return
+     */
+    public boolean isQuestion(){
+        return tag.equals("question");
+    }
+
+    /**
+     * Returns true if node contains the 'answer' of a component
+     * @return
+     */
+    public boolean isValueNode(){
+        return tag.equals("value");
     }
 
     public boolean hasValue(){
@@ -187,34 +203,17 @@ public class Element {
     }
 
     /**
-     * Sets the value (answer, response, etc) of the Element
-     * @param value value to set
-     */
-    public void setValue(Object value) {
-        this.value = value;
-    }
-
-    /**
-     * Gets data held in value
-     * @return
-     */
-    public Object getValue() {
-        return value;
-    }
-
-    /**
      * Performs a deep clone on the element.
      * @param parent required to keep tree structure, since making a deep copy of parent will result in a invalid reference to the actual parent of the element.
      * @return deep copied element
      */
-    public Element clone(Element parent){
-        Element e = new Element();
+    public Element<T> clone(Element<T> parent){
+        Element<T> e = new Element<>();
         e.parent = parent;
         e.tag = tag;
         e.id = id;
         e.hint = hint;
         e.type = type;
-        e.text = text;
         e.link = link;
         e.value = value;
         attributes.forEach(e::addAttribute);

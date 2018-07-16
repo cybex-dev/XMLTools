@@ -102,8 +102,8 @@ public class XMLTools {
      * @param parent parent element used to create and set children
      * @return root element of DOM document as a parsed element
      */
-    public static Element parse(org.w3c.dom.Element root, Element parent) {
-        Element element = new Element(root.getTagName(), parent);
+    public static Element<Object> parse(org.w3c.dom.Element root, Element<Object> parent) {
+        Element<Object> element = new Element<>(root.getTagName(), parent);
         for (int i = 0; i < root.getAttributes().getLength(); i++) {
             Attr item = (Attr) root.getAttributes().item(i);
             String attrKey = item.getNodeName();
@@ -116,7 +116,7 @@ public class XMLTools {
             if (item.getNodeType() == Node.ELEMENT_NODE) {
                 org.w3c.dom.Element e = (org.w3c.dom.Element) item;
                 String tag = e.getTagName();
-                Element childNode = parse(e, element);
+                Element<Object> childNode = parse(e, element);
                 if (tag.equals("component")) {
                     if (item.getFirstChild() != null && item.getFirstChild().getNodeType() == Node.TEXT_NODE) {
                         childNode.setValue(item.getFirstChild().getNodeValue().replace("\n", "").replace("\"", "").trim());
@@ -135,12 +135,12 @@ public class XMLTools {
      * @param id   ID of element to be found
      * @return element matching ID specified
      */
-    public static Element lookup(Element root, String id) {
+    public static Element<Object> lookup(Element<Object> root, String id) {
         if (root.getId().equals(id))
             return root;
         else {
-            for (Element element : root.getChildren()) {
-                Element e = lookup(element, id);
+            for (Element<Object> element : root.getChildren()) {
+                Element<Object> e = lookup(element, id);
                 if (e != null)
                     return e;
             }
