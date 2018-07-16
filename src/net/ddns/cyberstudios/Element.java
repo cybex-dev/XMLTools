@@ -7,7 +7,7 @@ import java.util.Map;
 //TODO
 // add methods to check ID, hint, check question type, check type, etc
 
-public class Element {
+public class Element<T> {
 
     public static Map.Entry<String, String> EmptyEntry = new Map.Entry<String, String>() {
         @Override
@@ -33,8 +33,10 @@ public class Element {
             id = "",
             hint = "",
             type = "",
-            value = "",
+            text = "",
             link = "";
+    private T value = null;
+
 
     public Element() {
     }
@@ -67,8 +69,8 @@ public class Element {
         this.parent = parent;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public boolean hasParent(){
@@ -95,8 +97,12 @@ public class Element {
         return type;
     }
 
-    public String getValue() {
-        return value;
+    /**
+     * Gets text value (question, etc) stored by Element
+     * @return
+     */
+    public String getText() {
+        return text;
     }
 
     public String getTag() {
@@ -163,7 +169,11 @@ public class Element {
     }
 
     public boolean isLeaf() {
-        return !value.isEmpty();
+        return !text.isEmpty();
+    }
+
+    public boolean hasValue(){
+        return value != null;
     }
 
     public ContentConsumer toHtml(String htmlTag){
@@ -174,5 +184,13 @@ public class Element {
     public String toString() {
         //TODO Check this
         return getPreTag(tag) + getChildrenContent() + getPostTag(tag);
+    }
+
+    /**
+     * Sets the value (answer, response, etc) of the Element
+     * @param value
+     */
+    public void setValue(T value) {
+        this.value = value;
     }
 }
