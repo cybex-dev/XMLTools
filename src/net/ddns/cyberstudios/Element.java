@@ -7,17 +7,17 @@ import java.util.Map;
 //TODO
 // add methods to check ID, hint, check question type, check type, etc
 
-public class Element<T> {
+public class Element {
 
     private Map<String, String> attributes = new HashMap<>();
-    private LinkedList<Element<T>> children = new LinkedList<>();
-    private Element<T> parent;
+    private LinkedList<Element> children = new LinkedList<>();
+    private Element parent;
     private String tag = "",
             id = "",
             hint = "",
             type = "",
             link = "";
-    private T value;
+    private Object value;
 
 
     public Element() {
@@ -27,31 +27,31 @@ public class Element<T> {
         this.tag = tag;
     }
 
-    public Element(String tag, Element<T> parent) {
+    public Element(String tag, Element parent) {
         this.tag = tag;
         this.parent = parent;
     }
 
-    public Element(String tag, Element<T> parent, LinkedList<Element<T>> children) {
+    public Element(String tag, Element parent, LinkedList<Element> children) {
         this.tag = tag;
         this.children = children;
         this.parent = parent;
     }
 
-    public Element(String tag, Element<T> parent, LinkedList<Element<T>> children, Map<String, String> attributes) {
+    public Element(String tag, Element parent, LinkedList<Element> children, Map<String, String> attributes) {
         this.tag = tag;
         this.attributes = attributes;
         this.children = children;
         this.parent = parent;
     }
 
-    public Element(String tag, Element<T> parent, Map<String, String> attributes) {
+    public Element(String tag, Element parent, Map<String, String> attributes) {
         this.tag = tag;
         this.attributes = attributes;
         this.parent = parent;
     }
 
-    public void setValue(T value) {
+    public void setValue(Object value) {
         this.value = value;
     }
 
@@ -83,7 +83,7 @@ public class Element<T> {
      * Gets text value (question, etc) stored by Element
      * @return
      */
-    public T getValue() {
+    public Object getValue() {
         return value;
     }
 
@@ -117,19 +117,19 @@ public class Element<T> {
         return !link.isEmpty();
     }
 
-    public void addChild(Element<T> child) {
+    public void addChild(Element child) {
         this.children.add(child);
     }
 
-    public LinkedList<Element<T>> getChildren() {
+    public LinkedList<Element> getChildren() {
         return children;
     }
 
-    public Element<T> getParent() {
+    public Element getParent() {
         return parent;
     }
 
-    public void setParent(Element<T> parent) {
+    public void setParent(Element parent) {
         this.parent = parent;
     }
 
@@ -207,8 +207,8 @@ public class Element<T> {
      * @param parent required to keep tree structure, since making a deep copy of parent will result in a invalid reference to the actual parent of the element.
      * @return deep copied element
      */
-    public Element<T> clone(Element<T> parent){
-        Element<T> e = new Element<>();
+    public Element clone(Element parent){
+        Element e = new Element();
         e.parent = parent;
         e.tag = tag;
         e.id = id;
