@@ -111,6 +111,7 @@ public class XMLTools {
             element.addAttribute(attrKey, attrValue);
         }
         NodeList childNodes = root.getChildNodes();
+
         for (int i = 0; i < childNodes.getLength(); i++) {
             Node item = childNodes.item(i);
             if (item.getNodeType() == Node.ELEMENT_NODE) {
@@ -118,8 +119,9 @@ public class XMLTools {
                 String tag = e.getTagName();
                 Element childNode = parse(e, element);
                 if (tag.equals("component")) {
-                    if (item.getFirstChild() != null && item.getFirstChild().getNodeType() == Node.TEXT_NODE) {
-                        childNode.setValue(item.getFirstChild().getNodeValue().replace("\n", "").replace("\"", "").trim());
+                    Node nextSibling = item.getFirstChild().getNextSibling();
+                    if (nextSibling.getFirstChild() != null && nextSibling.getFirstChild().getNodeType() == Node.TEXT_NODE) {
+                        childNode.setValue(nextSibling.getFirstChild().getNodeValue().replace("\n", "").replace("\"", "").trim());
                     }
                 }
                 element.addChild(childNode);
