@@ -17,7 +17,7 @@ public class Element {
             hint = "",
             type = "",
             link = "";
-    private Object value;
+    private Object value = "";
 
 
     public Element() {
@@ -138,7 +138,7 @@ public class Element {
     }
 
     public String getPreTag(String tag){
-        String att = attributes.entrySet().stream().map(attrEntry -> " " + attrEntry.getKey() + "=" + attrEntry.getValue()).reduce(String::concat).orElse("");
+        String att = attributes.entrySet().stream().map(attrEntry -> " " + attrEntry.getKey() + "=\"" + attrEntry.getValue() + "\"").reduce(String::concat).orElse("") ;
         return "<" + tag + " class=\"" + this.tag + "\" " + att + ">";
     }
 
@@ -147,7 +147,10 @@ public class Element {
     }
 
     public String getChildrenContent(){
-        return children.stream().map(Element::toString).reduce(String::concat).orElse("");
+        return children.stream()
+                .map(Element::toString)
+                .reduce(String::concat)
+                .orElse(value.toString());
     }
 
     /**

@@ -29,7 +29,7 @@ public class XMLTools {
     public static void main(String[] args) {
 //        File f = null;
 //        try {
-//            f = new File(XMLTools.class.getResource("/rec-h.xml").toURI());
+//            f = new File(XMLTools.class.getResource("/enrolment.xml").toURI());
 //        } catch (URISyntaxException e) {
 //            e.printStackTrace();
 //        }
@@ -42,8 +42,6 @@ public class XMLTools {
 //            System.out.printf("Element == null!\n");
 //            return;
 //        }
-//        Element has_equipment = null;
-//        has_equipment = XMLTools.lookup(element, "has_equipment");
     }
 
     /**
@@ -115,14 +113,13 @@ public class XMLTools {
             Node item = childNodes.item(i);
             if (item.getNodeType() == Node.ELEMENT_NODE) {
                 org.w3c.dom.Element e = (org.w3c.dom.Element) item;
-                String tag = e.getTagName();
                 Element childNode = parse(e, element);
-                if (tag.equals("component")) {
-                    if (item.getFirstChild() != null && item.getFirstChild().getNodeType() == Node.TEXT_NODE) {
-                        childNode.setValue(item.getFirstChild().getNodeValue().replace("\n", "").replace("\"", "").trim());
-                    }
-                }
                 element.addChild(childNode);
+            } else if (item.getNodeType() == Node.TEXT_NODE) {
+                String value = item.getNodeValue().replace("\n", "").replace("\"", "").trim();
+                if (!value.isEmpty()) {
+                    element.setValue(value);
+                }
             }
         }
         return element;
