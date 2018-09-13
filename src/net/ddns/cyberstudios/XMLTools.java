@@ -115,14 +115,13 @@ public class XMLTools {
             Node item = childNodes.item(i);
             if (item.getNodeType() == Node.ELEMENT_NODE) {
                 org.w3c.dom.Element e = (org.w3c.dom.Element) item;
-                String tag = e.getTagName();
                 Element childNode = parse(e, element);
-                if (tag.equals("component")) {
-                    if (item.getFirstChild() != null && item.getFirstChild().getNodeType() == Node.TEXT_NODE) {
-                        childNode.setValue(item.getFirstChild().getNodeValue().replace("\n", "").replace("\"", "").trim());
-                    }
-                }
                 element.addChild(childNode);
+            } else if (item.getNodeType() == Node.TEXT_NODE) {
+                String value = item.getNodeValue().replace("\n", "").replace("\"", "").trim();
+                if (!value.isEmpty()) {
+                    element.setValue(value);
+                }
             }
         }
         return element;
