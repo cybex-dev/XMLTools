@@ -20,31 +20,31 @@ import java.io.StringWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class XMLTools {
 
-    public static void main(String[] args) {
-//        File f = null;
-//        try {
-//            f = new File(XMLTools.class.getResource("/rec-h.xml").toURI());
-//        } catch (URISyntaxException e) {
-//            e.printStackTrace();
-//        }
-//        if (!f.exists()) {
-//            System.out.printf("No file!\n");
-//            return;
-//        }
-//        Element element = XMLTools.parseDocument(f);
-//        if (element == null) {
-//            System.out.printf("Element == null!\n");
-//            return;
-//        }
-//        Element has_equipment = null;
-//        has_equipment = XMLTools.lookup(element, "has_equipment");
-    }
+/*    public static void main(String[] args) {
+        File f = null;
+        try {
+            f = new File(XMLTools.class.getResource("/rec-h.xml").toURI());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        if (!f.exists()) {
+            System.out.printf("No file!\n");
+            return;
+        }
+        Element element = XMLTools.parseDocument(f);
+        if (element == null) {
+            System.out.printf("Element == null!\n");
+            return;
+        }
+        List<String> map = new ArrayList<>();
+        map = XMLTools.flatten(element);
+        System.out.printf("Done\n");
+    }*/
 
     /**
      * Text representation of document
@@ -147,6 +147,18 @@ public class XMLTools {
         }
         return null;
     }
+
+    /**
+     * Flattens an element by returning a list of all component ID's
+     * @param rootElement   root element
+     * @return list of all ID's as children of the element
+     */
+    public static List<String> flatten(Element rootElement){
+        List<String> collect = rootElement.getChildren().stream().filter(Element::isComponent).map(Element::getId).collect(Collectors.toList());
+        rootElement.getChildren().forEach(element -> collect.addAll(flatten(element)));
+        return collect;
+    }
+
 }
 
 
