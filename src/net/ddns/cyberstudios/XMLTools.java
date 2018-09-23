@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class XMLTools {
 
@@ -148,12 +149,25 @@ public class XMLTools {
     }
 
     /**
+     * Flattens with isComponent = true
+     * @param rootElement
+     * @return
+     */
+    public static List<String> flatten(Element rootElement){
+        return flatten(rootElement, true);
+    }
+
+    /**
      * Flattens an element by returning a list of all component ID's
      * @param rootElement   root element
      * @return list of all ID's as children of the element
      */
-    public static List<String> flatten(Element rootElement){
-        List<String> collect = rootElement.getChildren().stream().filter(Element::isComponent).map(Element::getId).collect(Collectors.toList());
+    public static List<String> flatten(Element rootElement, boolean isComponent){
+        Stream<Element> stream = rootElement.getChildren().stream();
+        if (isComponent) {
+            stream = stream.filter(Element::isComponent);
+        }
+        List<String> collect = stream.filter(Element::hasId).map(Element::getId).collect(Collectors.toList());
         rootElement.getChildren().forEach(element -> collect.addAll(flatten(element)));
         return collect;
     }
