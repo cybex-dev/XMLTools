@@ -220,7 +220,7 @@ public class Element {
         e.link = link;
         e.value = value;
         attributes.forEach(e::addAttribute);
-        children.forEach(element -> e.addChild(element.clone(parent)));
+        children.forEach(element -> e.addChild(element.clone(e)));
         return e;
     }
 }
