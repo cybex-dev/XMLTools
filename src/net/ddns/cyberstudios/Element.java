@@ -17,7 +17,7 @@ public class Element {
             hint = "",
             type = "",
             link = "";
-    private Object value = "";
+    private Object value = String.valueOf("");
 
 
     public Element() {
